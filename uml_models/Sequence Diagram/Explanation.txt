@@ -1,0 +1,1 @@
+Patient being monitor -> Some conditions exceeds threshold -> Check if trend continuing -> If yes then alert Nurse on duty -> Nurse treats patient - > Nurse resolves alert manually

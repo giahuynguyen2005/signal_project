@@ -1,0 +1,4 @@
+AlertGenerator: Responsible for continuously monitoring incoming patient data. It has methods evaluateData(PatientData data) and triggerAlert(Alert alert)
+Alert: Contains the patient's ID, the timestamp, and his/her conditions
+AlertManager: AlertGenerator will use this method. It contains the list of staff and is able to notify the right staff on duty
+Staff: Contains details of staff

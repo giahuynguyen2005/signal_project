@@ -1,0 +1,5 @@
+To store and manage historical patient data
+DataStorage: Responsible for the storage of patient data. Data can be stored, retrieved, and deleted
+PatientData: Data of the patients, containing ID, metrics, and timestamp
+DataRetriever: Responsible for retrieving the data from DataStorage, can fetch data of a patient
+AccessControl: To control who can use the data for better security

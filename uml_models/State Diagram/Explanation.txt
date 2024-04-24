@@ -1,0 +1,1 @@
+Starts with Monitoring -> Exceeds -> Check -> If not continuing then return to Monitoring, if yes then Alert Nurse on duty -> After treating, Nurse Resolve the alert manually -> Return to Monitoring 

@@ -1,0 +1,4 @@
+A bridge between our system and outside data sources
+DataListener: Listens 
+DataParser: Parses
+DataSourceAdapter: Adapts and Store

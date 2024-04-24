@@ -1,0 +1,4 @@
+Responsible for match incoming patient data with existing patient records and ensuring that all data is accurately attributed to the correct patient
+PatientIdentifier: Matches ID with records. Has methods to match and get
+PatientRecord: Including patientId, name, dateOfBirth, medicalHistory
+IdentifyManager: Helps with identifier, handle anomalies
