@@ -53,5 +53,27 @@ public class Patient {
      */
     public List<PatientRecord> getRecords(long startTime, long endTime) {
         // TODO Implement and test this method
+
+        /* Use a for loop to go through every record.
+           If the record's timestamp falls between the startTime & endTime,
+           add it into the ArrayList recordsList then return the list */
+
+        List<PatientRecord> recordsList = new ArrayList<PatientRecord>();
+        for (PatientRecord record : this.patientRecords) {
+            if (record.getTimestamp() >= startTime && record.getTimestamp() <= endTime) {
+                recordsList.add(record);
+            }
+        }
+        return recordsList;
+    }
+
+//    GETTERS
+    public int getPatientId() {
+        return patientId;
+    }
+
+//  METHOD TO GET ALL PATIENT'S RECORD
+    public List<PatientRecord> getAllPatientRecords() {
+        return patientRecords;
     }
 }
