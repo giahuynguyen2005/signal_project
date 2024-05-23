@@ -1,0 +1,3 @@
+- The tests are of data_management & alerts sections -> every other section is 0%
+- data_management section's coverage is only 56% because there is a main and it is not tested
+- alerts section's coverage is 83% because in one alert there are many types, and the test cases have not fully touched that small part yet, but all types of alert has been used
