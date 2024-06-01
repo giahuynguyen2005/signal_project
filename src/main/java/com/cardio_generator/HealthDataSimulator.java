@@ -29,7 +29,9 @@ public class HealthDataSimulator {
 
     private static int patientCount = 50; // Default number of patients
     private static ScheduledExecutorService scheduler;
-    private static OutputStrategy outputStrategy = new ConsoleOutputStrategy(); // Default output strategy
+    private static OutputStrategy outputStrategy = new WebSocketOutputStrategy(8080); // WebSocket
+//    private static OutputStrategy outputStrategy = new ConsoleOutputStrategy(); // Default output strategy
+
     private static final Random random = new Random();
 
     public static void main(String[] args) throws IOException {
@@ -122,7 +124,7 @@ public class HealthDataSimulator {
                 "  This command simulates data for 100 patients and sends the output to WebSocket clients connected to port 8080.");
     }
 
-    private static List<Integer> initializePatientIds(int patientCount) {
+    public static List<Integer> initializePatientIds(int patientCount) {
         List<Integer> patientIds = new ArrayList<>();
         for (int i = 1; i <= patientCount; i++) {
             patientIds.add(i);
@@ -130,7 +132,7 @@ public class HealthDataSimulator {
         return patientIds;
     }
 
-    private static void scheduleTasksForPatients(List<Integer> patientIds) {
+    public static void scheduleTasksForPatients(List<Integer> patientIds) {
         ECGDataGenerator ecgDataGenerator = new ECGDataGenerator(patientCount);
         BloodSaturationDataGenerator bloodSaturationDataGenerator = new BloodSaturationDataGenerator(patientCount);
         BloodPressureDataGenerator bloodPressureDataGenerator = new BloodPressureDataGenerator(patientCount);

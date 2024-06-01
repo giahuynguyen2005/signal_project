@@ -2,7 +2,6 @@ package data_management;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.data_management.MyDataReader;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +23,7 @@ class DataStorageTest {
     void testAddAndGetRecords() {
         // TODO Perhaps you can implement a mock data reader to mock the test data?
         // DataReader reader
-        MyDataReader reader = new MyDataReader("test");
+//        MyDataReader reader = new MyDataReader("test");
 
         DataStorage storage = new DataStorage();
         storage.addPatientData(1, 100.0, "WhiteBloodCells", 1714376789050L);
@@ -34,6 +33,8 @@ class DataStorageTest {
         assertEquals(2, records.size()); // Check if two records are retrieved
         assertEquals(100.0, records.get(0).getMeasurementValue()); // Validate first record
     }
+
+
 
     @BeforeEach
     public void setUpStreams() {

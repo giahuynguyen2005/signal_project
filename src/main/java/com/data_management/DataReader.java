@@ -4,10 +4,22 @@ import java.io.IOException;
 
 public interface DataReader {
     /**
-     * Reads data from a specified source and stores it in the data storage.
-     * 
-     * @param dataStorage the storage where data will be stored
-     * @throws IOException if there is an error reading the data
+     * Connects to a WebSocket server to read real-time data.
+     *
+     * @param uri the URI of the WebSocket server
+     * @throws IOException if there is an error connecting to the WebSocket server
      */
-    void readData(DataStorage dataStorage) throws IOException;
+    void connect(String uri) throws IOException;
+
+    /**
+     * Handles incoming messages from the WebSocket server.
+     *
+     * @param message the message received from the WebSocket server
+     */
+    void onMessage(String message);
+
+    /**
+     * Disconnects from the WebSocket server.
+     */
+    void disconnect();
 }

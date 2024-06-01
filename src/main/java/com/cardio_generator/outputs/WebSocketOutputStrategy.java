@@ -17,7 +17,26 @@ public class WebSocketOutputStrategy implements OutputStrategy {
 
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
-        String message = String.format("%d,%d,%s,%s", patientId, timestamp, label, data);
+        /*In DataStorage, we have the method "addPatientData(int patientId, double measurementValue, String recordType, long timestamp)",
+        * which in this case we have to format the message into that types of parameters*/
+        System.out.printf("Patient ID: %d, Timestamp: %d, Label: %s, Data: %s%n", patientId, timestamp, label, data);
+
+        double measurementValue;
+        try {
+            // Blood Saturation is in %, so to parse it, we have to get rid of the & sign
+            if (data.endsWith("%")) {
+                String numericString = data.substring(0, data.length() - 1);
+                measurementValue = Double.parseDouble(numericString);
+            }
+            else {
+                measurementValue = Double.parseDouble(data);
+            }
+        } catch (Exception e) {
+            System.err.println("Unable to parse to double " + data);
+            return;
+        }
+
+        String message = String.format("%d,%s%n,%s,%d", patientId, measurementValue, label, timestamp);
         // Broadcast the message to all connected clients
         for (WebSocket conn : server.getConnections()) {
             conn.send(message);
