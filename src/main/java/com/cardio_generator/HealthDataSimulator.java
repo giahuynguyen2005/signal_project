@@ -32,6 +32,8 @@ public class HealthDataSimulator {
     private static OutputStrategy outputStrategy = new WebSocketOutputStrategy(8080); // WebSocket
 //    private static OutputStrategy outputStrategy = new ConsoleOutputStrategy(); // Default output strategy
 
+    private static HealthDataSimulator instance;
+
     private static final Random random = new Random();
 
     public static void main(String[] args) throws IOException {
@@ -45,6 +47,14 @@ public class HealthDataSimulator {
 
         scheduleTasksForPatients(patientIds);
     }
+
+    public static HealthDataSimulator getInstance() {
+        if (instance == null) {
+            instance = new HealthDataSimulator();
+        }
+        return instance;
+    }
+
 
     private static void parseArguments(String[] args) throws IOException {
         for (int i = 0; i < args.length; i++) {
